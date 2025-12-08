@@ -100,7 +100,59 @@ git clone https://github.com/LibraryBookingSystem/docker-compose.git
 cd docker-compose
 ```
 
-### 3. Start All Services
+### 3. Complete Setup (Recommended - All-in-One)
+
+**For a complete automated setup**, use the setup script that handles everything:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File setup-complete.ps1
+```
+
+This script will:
+
+1. ✅ Check if Docker is running
+2. ✅ Rebuild all services (with `--no-cache` for clean build)
+3. ✅ Start all services
+4. ✅ Wait for services to be ready
+5. ✅ Verify API Gateway is accessible
+6. ✅ Initialize dummy data automatically
+
+**Note**: This script takes several minutes to complete as it rebuilds all services from scratch.
+
+**After the script completes**, you can:
+- Access the API Gateway at `http://localhost:8080`
+- Log in with admin credentials (username: `admin1`, password: `12345678a`)
+- Start using the Flutter frontend application
+
+### 4. Manual Setup (Alternative)
+
+If you prefer manual control or need to troubleshoot:
+
+### 3. Complete Setup (Recommended - All-in-One)
+
+**For a complete automated setup**, use the setup script that handles everything:
+
+```powershell
+cd docker-compose
+powershell -ExecutionPolicy Bypass -File setup-complete.ps1
+```
+
+This script will:
+
+1. ✅ Check if Docker is running
+2. ✅ Rebuild all services (with `--no-cache` for clean build)
+3. ✅ Start all services
+4. ✅ Wait for services to be ready
+5. ✅ Verify API Gateway is accessible
+6. ✅ Initialize dummy data automatically
+
+**Note**: This script takes several minutes to complete as it rebuilds all services from scratch.
+
+### 4. Manual Setup (Alternative)
+
+If you prefer manual control or the automated script fails:
+
+#### 4.1. Start All Services
 
 ```bash
 docker-compose up -d
@@ -115,7 +167,7 @@ This will:
 - Start API Gateway (port 8080) - routes all API requests
 - Initialize databases
 
-### 4. Verify Services are Running
+#### 4.2. Verify Services are Running
 
 ```bash
 docker-compose ps
